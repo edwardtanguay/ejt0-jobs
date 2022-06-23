@@ -16,7 +16,16 @@ function App() {
     return (
         <div className="App">
             <h1>Jobs</h1>
-            <p>There are {jobs.length} jobs.</p>
+            <p className="message">There are {jobs.length} jobs.</p>
+            {jobs.map((job, i) => {
+                return (
+                    <div
+                        className="job"
+                        key={i}
+                        dangerouslySetInnerHTML={{ __html: job.html }}
+                    ></div>
+                );
+            })}
         </div>
     );
 }
