@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.scss';
 
-const url = 'http://localhost:3021/jobs';
+const backend_url = import.meta.env.VITE_BACKEND_URL;
 
 function App() {
     const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
         (async () => {
-            setJobs((await axios.get(url)).data);
+            setJobs((await axios.get(backend_url)).data);
         })();
     }, []);
 
